@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Jedi Academy</title>
     <link rel="stylesheet" href="../build/css/style.css">
+    <link rel="stylesheet" href="../just-validate/dist/css/justValidateTooltip.min.css">
 </head>
 
 <body>
@@ -13,16 +14,82 @@
             <header class="header">
                 <a class="header__logo" href="#"></a>
             </header>
-            <main class="main">
+            <main class="constructor">
                 <h1>May the Force be with you</h1>
-                <img src="../build/img/1-2.png" alt="Alt" width="500" height="500">
+                <form class="constructor__form js-form" method="" action="">
+                    <div class="just-validate-tooltip-container">
+                        <input class="constructor__form-input" type="text" name="title" data-validate-field="title"
+                            placeholder="Title" value="1">
+                    </div>
+                    <div class="just-validate-tooltip-container">
+                        <input class="constructor__form-input" type="text" name="description" data-validate-field="desc"
+                            placeholder="Description" value="1">
+                    </div>
+                    <div class="just-validate-tooltip-container">
+                        <input class="constructor__form-input" type="text" name="start" data-validate-field="start"
+                            placeholder="Start Date" value="1">
+                    </div>
+                    <div class="just-validate-tooltip-container">
+                        <input class="constructor__form-input" type="text" name="end" data-validate-field="end"
+                            placeholder="End Date" value="1">
+                    </div>
+                    <div class="just-validate-tooltip-container">
+                        <input class="constructor__form-input" type="text" name="month" data-validate-field="month"
+                            placeholder="Month" value="1">
+                    </div>
+                    <div class="just-validate-tooltip-container">
+                        <input class="constructor__form-input" type="text" name="day" data-validate-field="day"
+                            placeholder="Day" value="1">
+                    </div>
+                    <div class="just-validate-tooltip-container">
+                        <input class="constructor__form-input" type="text" name="id" data-validate-field="id"
+                            placeholder="ID" value="1">
+                    </div>
+                    <div class="just-validate-tooltip-container">
+                        <div class="constructor__form-radio">
+                            <div class="constructor__form-radio-item">
+                                <input class="constructor__form-radio-item-box" type="radio" id="radio-first"
+                                    name="direction" value="code" checked>
+                                <label class="constructor__form-radio-item-label" for="radio-first">Code</label>
+                            </div>
+                            <div class="constructor__form-radio-item">
+                                <input class="constructor__form-radio-item-box" type="radio" id="radio-second"
+                                    name="direction" value="design">
+                                <label class="constructor__form-radio-item-label" for="radio-second">Design</label>
+                            </div>
+                            <div class="constructor__form-radio-item">
+                                <input class="constructor__form-radio-item-box" type="radio" id="radio-third"
+                                    name="direction" value="marketing">
+                                <label class="constructor__form-radio-item-label" for="radio-third">Marketing</label>
+                            </div>
+                            <div class="constructor__form-radio-item">
+                                <input class="constructor__form-radio-item-box" type="radio" id="radio-fourth"
+                                    name="direction" value="management">
+                                <label class="constructor__form-radio-item-label" for="radio-fourth">Management</label>
+                            </div>
+                            <div class="constructor__form-radio-item">
+                                <input class="constructor__form-radio-item-box" type="radio" id="radio-fifth"
+                                    name="direction" value="games">
+                                <label class="constructor__form-radio-item-label" for="radio-fifth">Games</label>
+                            </div>
+                            <div class="constructor__form-radio-item">
+                                <input class="constructor__form-radio-item-box" type="radio" id="radio-sixth"
+                                    name="direction" value="other">
+                                <label class="constructor__form-radio-item-label" for="radio-sixth">Other</label>
+                            </div>
+                        </div>
+                        <button class="constructor__form-button" type="submit">Create event</button>
+                </form>
             </main>
         </div>
         <footer class="footer">
             <p class="footer__info">2021</p>
         </footer>
     </div>
-    <script src="../build/js/main.min.js"></script>
+    <!-- <script src="../build/js/main.min.js"></script> -->
+    <script defer src="../just-validate/dist/js/just-validate.min.js"></script>
+    <script src="../src/js/http-request.js"></script>
+    <script src="../src/js/main.js"></script>
 </body>
 
 </html>

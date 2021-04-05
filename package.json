@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/m-berdnikov/skeleton-simple#readme",
   "dependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "just-validate": "^1.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
