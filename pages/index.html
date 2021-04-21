@@ -17,33 +17,33 @@
             <main class="constructor">
                 <h1>May the Force be with you</h1>
                 <form class="constructor__form js-form" method="" action="">
+                  <div class="just-validate-tooltip-container">
+                    <input class="constructor__form-input" type="text" name="id" data-validate-field="id"
+                        placeholder="ID">
+                </div>
                     <div class="just-validate-tooltip-container">
                         <input class="constructor__form-input" type="text" name="title" data-validate-field="title"
-                            placeholder="Title" value="1">
+                            placeholder="Title">
                     </div>
                     <div class="just-validate-tooltip-container">
                         <input class="constructor__form-input" type="text" name="description" data-validate-field="desc"
-                            placeholder="Description" value="1">
+                            placeholder="Description">
                     </div>
                     <div class="just-validate-tooltip-container">
                         <input class="constructor__form-input" type="text" name="start" data-validate-field="start"
-                            placeholder="Start Date" value="1">
+                            placeholder="Start Date - 2021-09-28">
                     </div>
                     <div class="just-validate-tooltip-container">
                         <input class="constructor__form-input" type="text" name="end" data-validate-field="end"
-                            placeholder="End Date" value="1">
+                            placeholder="End Date - 2021-09-28">
                     </div>
                     <div class="just-validate-tooltip-container">
                         <input class="constructor__form-input" type="text" name="month" data-validate-field="month"
-                            placeholder="Month" value="1">
+                            placeholder="Month">
                     </div>
                     <div class="just-validate-tooltip-container">
                         <input class="constructor__form-input" type="text" name="day" data-validate-field="day"
-                            placeholder="Day" value="1">
-                    </div>
-                    <div class="just-validate-tooltip-container">
-                        <input class="constructor__form-input" type="text" name="id" data-validate-field="id"
-                            placeholder="ID" value="1">
+                            placeholder="Day">
                     </div>
                     <div class="just-validate-tooltip-container">
                         <div class="constructor__form-radio">
@@ -79,14 +79,19 @@
                             </div>
                         </div>
                         <button class="constructor__form-button" type="submit">Create event</button>
+                        <textarea rows="10" cols="45" name="text" class="js-result-link-ics"></textarea>
                 </form>
+
             </main>
         </div>
         <footer class="footer">
             <p class="footer__info">2021</p>
         </footer>
     </div>
-    <!-- <script src="../build/js/main.min.js"></script> -->
+    <script>
+        var shortUrl = 'https://clck.ru/--?url=';
+        var calendarUrl = 'https://tools.emailmatrix.ru/event-generator';
+    </script>
     <script defer src="../just-validate/dist/js/just-validate.min.js"></script>
     <script src="../src/js/http-request.js"></script>
     <script src="../src/js/main.js"></script>

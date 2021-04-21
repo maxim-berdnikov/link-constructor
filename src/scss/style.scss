@@ -1,18 +1,57 @@
-@import '_normalize';
-@import '_color';
-@import '_fonts';
-@import '_mixin';
-@import '_variables';
-@import '_rules';
+@import "_normalize";
+@import "_color";
+@import "_fonts";
+@import "_mixin";
+@import "_variables";
+@import "_rules";
 
 .header {
-   &__logo {
-       margin: 20px auto;
-       display: block;
-       width: 50px;
-       height: 50px;
-       background: url('../img/logo.svg') center / cover no-repeat;
-   }
+  &__logo {
+    margin: 20px auto;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url("../img/logo.svg") center / cover no-repeat;
+  }
 }
 
-@import '_media';
+.just-validate-tooltip-container {
+  &:nth-child(1) {
+    width: 70px;
+  }
+
+  &:nth-child(2) {
+    width: 270px;
+  }
+
+  &:nth-child(3) {
+    width: 100%;
+  }
+}
+
+.constructor {
+  &__form {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 371px;
+
+    &-input {
+      margin: 10px auto;
+      padding: 0 15px;
+      width: 100%;
+      height: 40px;
+      box-sizing: border-box;
+      line-height: 40px;
+      outline: none;
+
+      &[name = 'id'] {
+        width: 70px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@import "_media";

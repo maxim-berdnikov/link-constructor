@@ -2,9 +2,18 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    const API_KEY = 'Zd87K9NT8EBihkb8anKy102553014';
-    let googleUrl = '';
-    let icsUrl = '';
+    const API_KEY = '7TyYdrk2KFeaefYFTe6T104199997';
+    let icsLink = document.querySelector('.js-result-link-ics');
+    let response = {
+        ok: "1",
+        ics: "Ссылк на ICS календарь",
+        google: "Ссылка на google календарь",
+        start: "28.09.2018 00:00",
+        title: "Заголовок события",
+        json: "json-строка со всеми переданными параметрами календаря"
+    };
+    let shortUrl = '';
+    let calendarInfo = '';
 
     new JustValidate('.js-form', {
         rules: {
@@ -32,11 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         submitHandler: function (form, values, ajax) {
-            getShortUrl(values, ajax, 'ics', icsUrl)
+            getShortUrl(values, ajax)
                 .then(
                     result => {
-                        icsUrl = result;
-                        return icsUrl;
+                        shortUrl = result;
+                        return shortUrl;
 
                     },
                     error => {
@@ -44,29 +53,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 )
                 .then(
-                    icsUrl => {
-                        console.log(icsUrl); // result - аргумент resolve
-                        return getShortUrl(values, ajax, 'ics', googleUrl);
-
+                    shortUrl => {
+                        return getCalendarLink(values, ajax, shortUrl);
                     },
                     error => {
                         console.log("Rejected: " + error); // error - аргумент reject
                     }
                 )
                 .then(
-                    googleUrlResp => {
-                        console.log(googleUrlResp); // result - аргумент resolve
-                        googleUrl = googleUrlResp;
-                        return googleUrl;
+                    result => {
+                        calendarInfo = result;
+                        placeLink(calendarInfo.ics, icsLink)
+                        return console.log(calendarInfo);
 
-                    },
-                    error => {
-                        console.log("Rejected: " + error); // error - аргумент reject
-                    }
-                )
-                .then(
-                    googleUrl => {
-                        getCalendarLink();
                     },
                     error => {
                         console.log("Rejected: " + error); // error - аргумент reject
@@ -76,21 +75,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    function getShortUrl(values, ajax, type, url) {
+    function getShortUrl(values, ajax) {
         return new Promise(function (resolve, reject) {
             ajax({
-                url: 'https://clck.ru/--?url=',
+                url: window.shortUrl,
                 method: 'GET',
-                data: `https://live.skillbox.ru/calendar/?direction=${values.direction}&utm_source=calendar${type}&utm_medium=calendar&utm_campaign=all_all_calendar${type}_calendar_invite_intensive-${values.id}-2021-${values.month}_all_${values.direction}_skillbox&utm_content=${values.date}&utm_term=intensive`,
+                data: `https://live.skillbox.ru/calendar/?direction=${values.direction}`,
                 async: true,
                 callback: function (resp) {
                     resolve(resp);
                 }
             });
-
         });
     }
-    function getCalendarLink() {
-        console.log('Календарь создан');
+
+    function getCalendarLink(values, ajax) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(() => {
+                resolve(response);
+            }, 500);
+            // ajax({
+            //     url: window.calendarUrl,
+            //     method: 'POST',
+            //     data: {
+            //         apikey: API_KEY,
+            //         start: values.start + '00:00',
+            //         end: values.end + ' 01:00',
+            //         timezone: 'Europe/Moscow',
+            //         title: values.title,
+            //         url: urlClck,
+            //         location: '',
+            //         description: values.description,
+            //         remind: '20',
+            //         remind_unit: 'm'
+            //     },
+            //     async: true,
+            //     callback: function (resp) {
+            //         resolve(resp);
+            //     }
+            // });
+        });
+    }
+
+    function placeLink(link, block) {
+        block.value = link;
     }
 });

@@ -70,6 +70,7 @@ function cleanBuild() {
 function startWatch() {
     watch(`${ASSETS_PATH_SRC}/js/**/*.js`, compressJS);
     watch(`${ASSETS_PATH_SRC}/scss/**/*.scss`, sassFun);
+    watch([`${ASSETS_PATH_BUILD}/css/**/*.css`, `!${ASSETS_PATH_BUILD}/css/**/*.min.css`], compressCSS);
     watch(`${ASSETS_PATH_SRC}/img/**/*`, compressImg);
     watch(`${PAGE_PATH}/**/*.html`).on('change', browserSync.reload);
 }
@@ -78,6 +79,6 @@ exports.js = compressJS;
 exports.sass = sassFun;
 exports.img = compressImg;
 
-exports.default = parallel(sassFun, compressJS, compressImg, browsersync, startWatch);
+exports.default = parallel(browsersync, startWatch);
 exports.css = series(sassFun, compressCSS);
 exports.build = series(cleanBuild, sassFun, compressCSS, compressJS, compressImg);
